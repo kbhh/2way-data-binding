@@ -5,10 +5,18 @@
  </head>
 <body> 
    <div>
-     Name: <input v-model="name" type="text"> <span v-model="name"></span>
+     Name: <input v-model="name" type="text"> <span v-model="name"></span><br><br>
      Age: <input v-model="age" type="text"> <span v-model="age"></span>
+     <span v-model="age"></span>
+     <button onclick="saveData()">Save</button>
    </div>
 
    <script src="main.js"></script>
+   <script>
+       // can use state object to access the state of the app
+        const saveData = () => {
+           console.log(state) 
+        }
+   </script>
 </body>
 </html>

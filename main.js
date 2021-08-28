@@ -1,17 +1,19 @@
-(function () {
-    const elts = document.querySelectorAll('[v-model]'); const data = { }
 
+let state = {
+};
+(function () {
+    const elts = document.querySelectorAll('[v-model]')
     elts.forEach((elt) => {
         const addProp = (prop) => {
-            if (!data.hasOwnProperty(prop)) {
+            if (!state.hasOwnProperty(prop)) {
                 let value
-                Object.defineProperty(data, prop, {
+                Object.defineProperty(state, prop, {
                     set: (newValue) => {
                         value = newValue
                         elts.forEach((elt) => {
                             if (elt.getAttribute('v-model') === prop) {
                                 if (elt.type && (elt.type === 'text' || elt.type === 'textarea')) {
-                                    elt.value = newValue;
+                                    elt.value = newValue
                                 } else if (!elt.type) {
                                     elt.innerHTML = newValue
                                 }
@@ -29,8 +31,9 @@
             var prop = elt.getAttribute('v-model')
             addProp(prop)
             elt.onkeyup = () => {
-                data[prop] = elt.value
+                state[prop] = elt.value
             }
         }
     })
-})();
+})()
+
