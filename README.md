@@ -1,2 +1,2 @@
 # 2way-data-binding
-Two data binding implementation using javascript.  
+Two way data binding implementation using javascript.  
